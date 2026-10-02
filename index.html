@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Connect Me - Car Rush</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- START SCREEN -->
+    <section id="startScreen" class="screen">
+      <div class="menu-card">
+        <div class="logo">CAR <span>RUSH</span></div>
+        <p class="subtitle">لعبة قيادة بأربع مسارات</p>
+
+        <div class="car-preview-wrap">
+          <div id="previewCar" class="car-preview"><div class="car-window"></div></div>
+        </div>
+
+        <div class="color-title">اختر لون سيارتك</div>
+        <div id="colorPicker" class="colors"></div>
+
+        
+<div class="biome-choice">
+  <label for="biomeSelect">4-LANE ROAD • Start biome:</label>
+  <select id="biomeSelect">
+    <option value="grass">🌿 الأرض الخضراء</option>
+    <option value="desert">🏜️ الصحراء</option>
+    <option value="city">🏙️ المدينة</option>
+    <option value="winter">❄️ الشتاء / الجليد</option>
+  </select>
+</div>
+<div class="time-choice">
+  <label for="timeSelect">وقت البداية:</label>
+  <select id="timeSelect">
+    <option value="day">☀️ نهار</option>
+    <option value="night">🌙 ليل</option>
+  </select>
+</div>
+<div class="difficulty-choice">
+  <label for="difficultySelect">مستوى الصعوبة:</label>
+  <select id="difficultySelect">
+    <option value="easy">🟢 سهل</option>
+    <option value="normal" selected>🟡 عادي</option>
+    <option value="hard">🔴 صعب</option>
+    <option value="peaceful">🔵 السلام التام — بدون سيارات</option>
+  </select>
+</div>
+<button id="startBtn" class="main-btn">ابدأ اللعب</button>
+        <div class="help">التحكم: ← → أو A / D &nbsp; • &nbsp; إيقاف مؤقت: P</div>
+      </div>
+    </section>
+
+    <!-- GAME UI -->
+    <section id="gameUI" class="hidden">
+      <div class="hud">
+        <div class="hud-box">النقاط <b id="score">0</b></div>
+        <div class="hud-box">السرعة <b id="speed">0</b></div>
+        <div class="hud-box">🛡️ <b id="shieldCount">0</b></div>
+        <div class="hud-box difficulty-hud">الصعوبة <b id="difficultyHud">عادي</b></div>
+        <button id="pauseBtn" class="hud-btn">Ⅱ</button>
+      </div>
+      <div id="eventText" class="event-text"></div>
+    </section>
+
+    <!-- PAUSE -->
+    <section id="pauseScreen" class="screen hidden">
+      <div class="menu-card small">
+        <h1>إيقاف مؤقت</h1>
+        <button id="resumeBtn" class="main-btn">متابعة</button>
+        <button id="restartBtn" class="secondary-btn">إعادة اللعب</button>
+        <button id="menuBtn" class="secondary-btn">القائمة الرئيسية</button>
+      </div>
+    </section>
+
+    <!-- GAME OVER -->
+    <section id="gameOverScreen" class="screen hidden">
+      <div class="menu-card small">
+        <div class="game-over">GAME OVER</div>
+        <p>النقاط: <b id="finalScore">0</b></p>
+        <p>المسافة: <b id="finalDistance">0</b></p>
+        <button id="retryBtn" class="main-btn">إعادة اللعب</button>
+        <button id="overMenuBtn" class="secondary-btn">القائمة الرئيسية</button>
+      </div>
+    </section>
+
+    <!-- MOBILE CONTROLS -->
+    <div id="mobileControls" class="hidden">
+      <button id="leftBtn">◀</button>
+      <button id="rightBtn">▶</button>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

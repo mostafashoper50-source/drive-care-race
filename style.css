@@ -1,0 +1,43 @@
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#111;font-family:Arial,sans-serif;touch-action:none}
+body{overscroll-behavior:none}
+#app,#gameCanvas{position:fixed;inset:0;width:100%;height:100%}
+#gameCanvas{display:block}
+.hidden{display:none!important}
+.screen{position:fixed;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.30);z-index:20;padding:16px}
+.menu-card{width:min(430px,94vw);padding:24px;border-radius:22px;background:rgba(18,23,29,.96);color:#fff;text-align:center;box-shadow:0 20px 60px #0008}
+.menu-card.small{max-width:360px}.logo{font-size:44px;font-weight:900;letter-spacing:3px}.logo span{color:#ffb300}.subtitle{color:#cbd5dc;margin-top:4px}
+.car-preview-wrap{height:115px;display:grid;place-items:center}.car-preview{width:58px;height:94px;border-radius:14px;background:#e53935;border:3px solid #111;box-shadow:0 15px 25px #0008;position:relative}.car-window{position:absolute;left:10px;right:10px;top:18px;height:24px;border-radius:8px;background:#1d3548}
+.color-title{margin:8px 0}.colors{display:flex;justify-content:center;flex-wrap:wrap;gap:8px}.color-btn{width:30px;height:30px;border-radius:50%;border:2px solid #ffffff44;cursor:pointer}.color-btn.selected{outline:3px solid #fff}
+.biome-choice,.time-choice,.difficulty-choice{text-align:right;margin-top:13px}.biome-choice label,.time-choice label,.difficulty-choice label{display:block;margin-bottom:6px;color:#d7dee3}.biome-choice select,.time-choice select,.difficulty-choice select{width:100%;padding:12px;border:0;border-radius:10px;background:#303942;color:#fff;font-size:16px}
+.main-btn,.secondary-btn{width:100%;border:0;border-radius:12px;padding:13px;margin-top:12px;cursor:pointer;font-size:16px}.main-btn{background:#ffb300;color:#171717;font-weight:800}.secondary-btn{background:#3b4651;color:#fff}.help{margin-top:15px;color:#aeb8c0;font-size:13px}
+.hud{position:fixed;top:12px;left:50%;transform:translateX(-50%);display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:7px;direction:ltr;z-index:10;width:min(94vw,720px);pointer-events:none}.hud-box,.hud-btn{background:#17202dcc;color:#fff;border:1px solid #ffffff1c;border-radius:10px;padding:8px 11px;backdrop-filter:blur(5px)}.hud-btn{cursor:pointer;pointer-events:auto}.difficulty-hud{direction:rtl}.event-text{z-index:11}
+.event-text{position:fixed;top:64px;left:50%;transform:translateX(-50%);color:#fff;background:#0009;padding:8px 14px;border-radius:10px;opacity:0;transition:opacity .2s;pointer-events:none}
+#mobileControls{position:fixed;left:0;right:0;bottom:max(18px, env(safe-area-inset-bottom));display:flex;justify-content:space-between;padding:0 max(18px, env(safe-area-inset-left), env(safe-area-inset-right));z-index:12;pointer-events:none;direction:ltr}
+#mobileControls button{pointer-events:auto;width:clamp(62px,16vw,82px);height:clamp(62px,16vw,82px);border-radius:50%;border:1px solid #ffffff44;background:#17202dcc;color:#fff;font-size:29px;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.game-over{font-size:38px;font-weight:900;color:#ff5252;margin-bottom:12px}
+@media(max-width:700px){
+  .menu-card{width:min(92vw,430px);padding:17px;border-radius:18px;max-height:92vh;overflow:auto}
+  .logo{font-size:34px}
+  .subtitle{font-size:14px}
+  .car-preview-wrap{height:82px}
+  .car-preview{transform:scale(.78)}
+  .color-title{font-size:14px}
+  .help{font-size:11px}
+  .hud{top:max(8px, env(safe-area-inset-top));width:96vw;gap:5px}
+  .hud-box,.hud-btn{padding:7px 8px;font-size:12px}
+  .event-text{top:70px;font-size:12px;max-width:90vw;text-align:center}
+}
+@media(max-width:430px){
+  .hud{width:98vw}
+  .hud-box,.hud-btn{padding:6px 7px;font-size:11px}
+  .difficulty-hud{display:none}
+  #mobileControls{bottom:max(14px, env(safe-area-inset-bottom))}
+}
+@media(orientation:landscape) and (max-height:520px){
+  .menu-card{max-height:88vh;padding:12px}
+  .car-preview-wrap{height:55px}
+  .car-preview{transform:scale(.55)}
+  .help{display:none}
+  #mobileControls button{width:60px;height:60px}
+}
